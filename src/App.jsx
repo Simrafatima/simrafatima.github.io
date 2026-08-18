@@ -1,27 +1,47 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <div className="portfolio">
       {/* Navigation */}
       <header className="navbar">
-        <a href="#home" className="brand">
+        <a href="#home" className="brand" onClick={closeMenu}>
           <span className="brand-dot"></span>
           SIMRA
         </a>
 
-        <nav>
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#work">Work</a>
-          <a href="#education">Education</a>
-          <a href="#certifications">Certifications</a>
-          <a href="#contact">Contact</a>
+        <nav className={menuOpen ? "mobile-open" : ""}>
+          <a href="#about" onClick={closeMenu}>About</a>
+          <a href="#experience" onClick={closeMenu}>Experience</a>
+          <a href="#work" onClick={closeMenu}>Work</a>
+          <a href="#education" onClick={closeMenu}>Education</a>
+          <a href="#certifications" onClick={closeMenu}>Certifications</a>
+          <a href="#contact" onClick={closeMenu}>Contact</a>
+
+          <a href="#contact" className="mobile-connect" onClick={closeMenu}>
+            Let's Connect
+          </a>
         </nav>
 
         <a href="#contact" className="nav-button">
           Let's Connect
         </a>
+
+        <button
+          className="menu-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </header>
 
       {/* Hero */}
@@ -231,7 +251,6 @@ function App() {
           </p>
         </div>
 
-        {/* Featured Project */}
         <div className="featured-project">
           <div className="project-visual brain">
             <div className="visual-orbit orbit-one"></div>
@@ -275,7 +294,6 @@ function App() {
           </div>
         </div>
 
-        {/* Project Grid */}
         <div className="project-grid">
           <article className="project-card large-card">
             <div className="card-icon code-icon">&lt;/&gt;</div>
@@ -372,7 +390,6 @@ function App() {
           </article>
         </div>
 
-        {/* Cybersecurity */}
         <div className="security-section">
           <div className="security-heading">
             <p className="small-label">PRACTICAL SECURITY WORK</p>
@@ -430,7 +447,6 @@ function App() {
           </div>
         </div>
 
-        {/* Business */}
         <div className="business-work">
           <div>
             <p className="small-label">BEYOND TECHNICAL WORK</p>
@@ -543,8 +559,8 @@ function App() {
 
           <p>
             Selected cybersecurity certifications and practical training
-            programs completed through online learning, workshops, and technical
-            training.
+            programs completed through online learning, workshops, and
+            technical training.
           </p>
         </div>
 
