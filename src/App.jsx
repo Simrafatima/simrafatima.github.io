@@ -4,7 +4,9 @@ import "./App.css";
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <div className="portfolio">
@@ -16,24 +18,32 @@ function App() {
         </a>
 
         <nav className={menuOpen ? "mobile-open" : ""}>
-          <a href="#about" onClick={closeMenu}>About</a>
-          <a href="#experience" onClick={closeMenu}>Experience</a>
-          <a href="#work" onClick={closeMenu}>Work</a>
-          <a href="#education" onClick={closeMenu}>Education</a>
-          <a href="#certifications" onClick={closeMenu}>Certifications</a>
-          <a href="#contact" onClick={closeMenu}>Contact</a>
-
-          <a href="#contact" className="mobile-connect" onClick={closeMenu}>
-            Let's Connect
+          <a href="#about" onClick={closeMenu}>
+            About
+          </a>
+          <a href="#experience" onClick={closeMenu}>
+            Experience
+          </a>
+          <a href="#work" onClick={closeMenu}>
+            Work
+          </a>
+          <a href="#education" onClick={closeMenu}>
+            Education
+          </a>
+          <a href="#certifications" onClick={closeMenu}>
+            Certifications
+          </a>
+          <a href="#contact" onClick={closeMenu}>
+            Contact
           </a>
         </nav>
 
-        <a href="#contact" className="nav-button">
+        <a href="#contact" className="nav-button" onClick={closeMenu}>
           Let's Connect
         </a>
 
         <button
-          className="menu-toggle"
+          className={`mobile-menu-button ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation menu"
           aria-expanded={menuOpen}
@@ -119,9 +129,9 @@ function App() {
 
           <div className="about-content">
             <p className="lead">
-              A Computer Science Engineer with hands-on exposure across software
-              development, cybersecurity, artificial intelligence, IoT, and
-              technology projects.
+              A Computer Science Engineer with hands-on exposure across
+              software development, cybersecurity, artificial intelligence,
+              IoT, and technology projects.
             </p>
 
             <p>
@@ -251,6 +261,7 @@ function App() {
           </p>
         </div>
 
+        {/* Featured Project */}
         <div className="featured-project">
           <div className="project-visual brain">
             <div className="visual-orbit orbit-one"></div>
@@ -294,6 +305,7 @@ function App() {
           </div>
         </div>
 
+        {/* Project Grid */}
         <div className="project-grid">
           <article className="project-card large-card">
             <div className="card-icon code-icon">&lt;/&gt;</div>
@@ -390,6 +402,7 @@ function App() {
           </article>
         </div>
 
+        {/* Cybersecurity */}
         <div className="security-section">
           <div className="security-heading">
             <p className="small-label">PRACTICAL SECURITY WORK</p>
@@ -447,6 +460,7 @@ function App() {
           </div>
         </div>
 
+        {/* Business */}
         <div className="business-work">
           <div>
             <p className="small-label">BEYOND TECHNICAL WORK</p>
